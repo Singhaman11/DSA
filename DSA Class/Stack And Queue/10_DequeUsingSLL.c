@@ -19,12 +19,12 @@ void insertion(int element, int option)
         rear = new;
         front = new;
     }
-    else if(option == 1)
+    else if(option == 1)                    //Insertion of node at the front.
     {
         new -> next = front;
         front = new;
     }
-    else
+    else                                    //Insertion of node at the end.
     {
         rear -> next = new;
         rear = new;
@@ -41,13 +41,13 @@ void deletion(int option)
     {
         front = NULL;
     }
-    else if(option == 1)
+    else if(option == 1)                    //Deletion of node from the front.
     {
         deleteNode = front;
         front = front -> next;
         free(deleteNode);
     }
-    else
+    else                                    //Deletion of node from the end.
     {
         struct Node *temp = front;
         deleteNode = rear;
