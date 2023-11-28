@@ -22,7 +22,7 @@ void insertion(int element, int option)
     }
     else if(option == 1)               //Insertion at front of the deque.
     {
-        for(int i = rear; i >= 0; i--)
+        for(int i = rear; i >= front; i--)
         {
             deque[i+1] = deque[i];
         }
@@ -41,11 +41,11 @@ void deletion(int option)
     {
         printf("No element is present in the deque.\n");
     }
-    else if(option == 1)               //Deletion of node from the front.
+    else if(option == 1)               //Deletion from the front.
     {
         front++;
     }
-    else                               //Deletion of node from the end.
+    else                               //Deletion from the end.
     {
         rear--;
     }
@@ -59,7 +59,9 @@ int Front()
         return 0;
     }
     else
+    {
         return deque[front];
+    }
 }
 int Rear()
 {
@@ -70,18 +72,24 @@ int Rear()
         return 0;
     }
     else
+    {
         return deque[rear];
+    }
 }
 int isFull()
 {
     if(rear == (DEQUE_SIZE - 1))
+    {
         return 1;
+    }
     return 0;
 }
 int isEmpty()
 {
     if(Rear() == -1)
+    {
         return 1;
+    }
     return 0;
 }
 void display()
@@ -91,7 +99,9 @@ void display()
         printf("%d, ", deque[i]);
     }
     if(front > rear)
+    {
         printf("No element present in the deque.");
+    }
     printf("\n");
 }
 void main()

@@ -63,36 +63,54 @@ void deletion(int option)
 int peek()
 {
     if(isEmpty() == 1)
+    {
         printf("No element is present in the deque.\n");
+    }
     else
+    {
         return front->data;
+    }
 }
 int Front()
 {
     if(isEmpty() == 0)
+    {
         return front->data;
+    }
     else
+    {
         return 0;
+    }
 }
 int Rear()
 {
     if(isEmpty() == 0)
+    {
         return rear->data;
+    }
     else
+    {
         return 0;
+    }
 }
 int isEmpty()
 {
     if(front == NULL)
+    {
         return 1;
+    }
     else
+    {
         return 0;
+    }
 }
 void display()
 {
     struct Node *temp = front;
     if(isEmpty() == 1)
+    {
         printf("No element is present in the deque.");
+    }
     while(temp != NULL)
     {
         printf("%d, ", temp -> data);
