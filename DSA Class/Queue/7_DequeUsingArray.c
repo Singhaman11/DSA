@@ -3,69 +3,52 @@ Input restricted Deque: Insertion from front & deletion from both the ends.
 Output restricted Deque: Deletion from front & insertion from both the ends.*/
 #include<stdio.h>
 #include<stdlib.h>
-struct Node
-{
-    int data;
-    struct Node *next;
-    struct Node *previous;
-}*front = NULL, *rear = NULL;
+#define DEQUE_SIZE 5
+int front = -1, rear = -1;
+int deque[DEQUE_SIZE];
+int isFull();
 int isEmpty();
 void insertion(int element, int option)
 {
-    struct Node *new = (struct Node*) malloc(sizeof(struct Node));
-    new -> data = element;
-    new -> next = NULL;
-    new -> previous = NULL; 
-    if(rear == NULL)
+    if(isFull() == 1)
     {
-        rear = new;
-        front = new;
+        printf("Overflow\n");
     }
-    else if(option == 1)                //Insertion at front of the deque.
+    else if(rear == -1)                //Insertion at 1st index of the array.
     {
-        new -> next = front;
-        front -> previous = new;
-        front = new;
+        deque[0] = element;
+        rear = 0;
+        front = 0;
     }
-    else                                //Insertion at end of the deque.
+    else if(option == 1)               //Insertion at front of the deque.
     {
-        rear -> next = new;
-        new -> previous = rear;
-        rear = new;
+        for(int i = rear; i >= 0; i--)
+        {
+            deque[i+1] = deque[i];
+        }
+        rear++;
+        deque[0] = element;
+    }
+    else                               //Insertion at end of the deque.
+    {
+        rear++;
+        deque[rear] = element;
     }
 }
 void deletion(int option)
 {
-    struct Node *deleteNode = NULL;
     if(isEmpty() == 1)
     {
         printf("No element is present in the deque.\n");
-    }
-    else if(front->next == NULL)
-    {
-        front = NULL;
     }
     else if(option == 1)                //Deletion of node from the front.
     {
-        deleteNode = front;
-        front = front -> next;
-        front -> previous = NULL;
-        free(deleteNode);
+        front++;
     }
     else                                //Deletion of node from the end.
     {
-        deleteNode = rear;
-        rear = rear -> previous;
-        rear -> next = NULL;
-        free(deleteNode);
+        rear--;
     }
-}
-int peek()
-{
-    if(isEmpty() == 1)
-        printf("No element is present in the deque.\n");
-    else
-        return front->data;
 }
 int Front()
 {
@@ -76,7 +59,7 @@ int Front()
         return 0;
     }
     else
-        return queue[front];
+        return deque[front];
 }
 int Rear()
 {
@@ -87,11 +70,11 @@ int Rear()
         return 0;
     }
     else
-        return queue[rear];
+        return deque[rear];
 }
 int isFull()
 {
-    if(rear == (QUEUE_SIZE - 1))
+    if(rear == (DEQUE_SIZE - 1))
         return 1;
     return 0;
 }
@@ -105,10 +88,10 @@ void display()
 {
     for(int i = front; i <= rear; i++)
     {
-        printf("%d, ", queue[i]);
+        printf("%d, ", deque[i]);
     }
     if(front > rear)
-        printf("No element present in the queue.");
+        printf("No element present in the deque.");
     printf("\n");
 }
 void main()
