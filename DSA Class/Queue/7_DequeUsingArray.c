@@ -41,11 +41,11 @@ void deletion(int option)
     {
         printf("No element is present in the deque.\n");
     }
-    else if(option == 1)                //Deletion of node from the front.
+    else if(option == 1)               //Deletion of node from the front.
     {
         front++;
     }
-    else                                //Deletion of node from the end.
+    else                               //Deletion of node from the end.
     {
         rear--;
     }
