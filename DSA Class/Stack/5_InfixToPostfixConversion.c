@@ -88,7 +88,6 @@ void Infix_to_Postfix(char arr[])
         else if(priority(arr[i]) == 3 && priority(peek()) == 3)
         {
             push(arr[i]);
-            printf("XXX");
         }
         else if(priority(arr[i]) <= priority(peek()))
         {
