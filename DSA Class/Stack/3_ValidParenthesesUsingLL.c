@@ -15,7 +15,9 @@ void push(char element)
     new -> data = element;
     new -> next = NULL;
     if(head != NULL)
+    {
         new -> next = head;
+    }
     head = new;
 }
 void pop()
@@ -24,7 +26,9 @@ void pop()
     if(isEmpty() != 1)
     {
         if(head->next == NULL)
+        {
             head = NULL;
+        }
         else
         {
             deleteNode = head;
@@ -36,13 +40,17 @@ void pop()
 char peek()
 {
     if(isEmpty() != 1)
+    {
         return head->data;
+    }
     return -1;
 }
 int isEmpty()
 {
     if(head != NULL)
+    {
         return 0;
+    }
     return 1;
 }
 int checkBracketValidity(char arr[])
@@ -52,31 +60,44 @@ int checkBracketValidity(char arr[])
     for(int i = 0; i < n; i++)
     {
         if(arr[i] == '{' || arr[i] == '[' || arr[i] == '(')
+        {
             push(arr[i]);
+        }
         else if(arr[i] == '}' || arr[i] == ']' || arr[i] == ')')
         {
-            char element = peek();
-            if(element == -1)
+            char bracket = peek();
+            if(bracket == -1)
+            {
                 return 0;
-            if((arr[i] == '}' && element == '{') || (arr[i] == ']' && element == '[') || (arr[i] == ')' && element == '('))
+            }
+            if((arr[i] == '}' && bracket == '{') || (arr[i] == ']' && bracket == '[') || (arr[i] == ')' && bracket == '('))
+            {
                 pop();
+            }
         }
         else
+        {
             return 0;    
+        }
     }
     if(peek() == -1)
+    {
         return 1;
+    }
 }
 void main()
 {
     int c = 0;
-    char element;
     char parenthesis[100];
     memset(parenthesis, '\0', 100);
     printf("Enter the parenthesis string.\n");
     scanf("%s", parenthesis);
     if(checkBracketValidity(parenthesis) == 1)
+    {
         printf("VALID\n");
+    }
     else
+    {
         printf("INVALID\n");
+    }
 }

@@ -18,10 +18,13 @@ struct Node *createNode(int element)
 int inOrder(struct Node *root)
 {
     if(root == NULL)
+    {
         return 0;
+    }
     int leftSum = inOrder(root->left);
     int rightSum = inOrder(root->right);
     return root->data + leftSum + rightSum;
+    // return root->data + inOrder(root -> left) + inOrder(root -> right);
 }
 int main()
 {
