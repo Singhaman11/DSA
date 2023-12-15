@@ -35,9 +35,15 @@ void removeDuplicateElement()
             temp1 = temp -> next;
             temp -> next = temp1 -> next;
             free(temp1);
+            if(temp->next == NULL)
+            {
+                break;
+            }
         }
         if(temp->next != NULL)
+        {
             temp = temp -> next;
+        }
     }
 }
 void display()

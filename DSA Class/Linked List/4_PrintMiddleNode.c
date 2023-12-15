@@ -1,4 +1,4 @@
-//Print the data stored in the middle node of a given linked list
+//Print the data stored in the middle node of a given linked list.
 #include<stdio.h>
 #include<stdlib.h>
 struct Node

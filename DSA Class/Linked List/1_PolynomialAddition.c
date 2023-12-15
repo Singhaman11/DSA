@@ -32,7 +32,9 @@ void createList(struct Node **head, int n)
 }
 void Addition(struct Node **head1, struct Node **head2, struct Node **head3)
 {
-    struct Node *temp1 = *head1, *temp2 = *head2, *temp3 = *head3;
+    struct Node *temp1 = *head1;
+    struct Node *temp2 = *head2;
+    struct Node *temp3 = *head3;
     struct Node *newNode;
     while(temp1 != NULL && temp2 != NULL)
     {

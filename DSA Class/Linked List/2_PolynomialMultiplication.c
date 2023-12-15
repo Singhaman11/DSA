@@ -65,7 +65,6 @@ void Multiplication(struct Node **head1, struct Node **head2, struct Node **head
                 temp3 -> c = temp3->c + (temp1->c * temp2->c);
                 temp2 = temp2 -> next;
             }
-
         }
         struct Node *new = (struct Node*) malloc(sizeof(struct Node));
         new -> c = temp1->c * temp2->c;
