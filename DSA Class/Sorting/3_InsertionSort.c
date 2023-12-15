@@ -3,7 +3,7 @@ int main()
 {
     int ar[] = {12, 54, 65, 7, 23, 9};
     int n = sizeof(ar) / sizeof(int);
-    int t = 0, key = 0, pos  = 0;
+    int key = 0;
     for(int i = 1; i < n; i++)
     {
         key = ar[i];                //i = 3     key = 7

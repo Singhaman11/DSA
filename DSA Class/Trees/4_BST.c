@@ -48,11 +48,12 @@ struct Node *BST_search(struct Node *root, int value)
         return BST_search(root->right, value);
     }
 }
-void BST_delete(struct Node *root)
+struct Node *BST_delete(struct Node *root)
 {
     if(root->left == NULL && root->right == NULL)    //If the parent does not have any child node.
     {
         free(root);
+        return NULL;
     }
     else if(root->left != NULL)                         //If the parent has only left or both node/s.
     {
@@ -63,7 +64,7 @@ void BST_delete(struct Node *root)
             temp = temp -> right;
         }
         root -> data = temp -> data;
-        BST_delete(temp);
+        temp = BST_delete(temp);
     }
     else if(root->left == NULL)                         //If the parent node has only the right node.
     {
@@ -74,8 +75,9 @@ void BST_delete(struct Node *root)
             temp = temp -> left;
         }
         root -> data = temp -> data;
-        BST_delete(temp);
+        temp = BST_delete(temp);
     }
+    return root;
 }
 void postorder(struct Node *root)
 {
@@ -118,7 +120,7 @@ void main()
                 printf("Enter the value to be deleted.\n");
                 scanf("%d", &v);
                 struct Node *temp = BST_search(root, v);
-                BST_delete(temp);
+                root = BST_delete(temp);
                 break;
             case 4:
                 postorder(root);
