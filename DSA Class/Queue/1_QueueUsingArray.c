@@ -56,7 +56,7 @@ int isFull()
 }
 int isEmpty()
 {
-    if(Rear() == -1)
+    if(Rear() == 0)
         return 1;
     return 0;
 }

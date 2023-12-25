@@ -4,7 +4,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<stdbool.h>
-#define STACK_SIZE 50 
+#define STACK_SIZE 10000
 int top = -1;
 int stack[STACK_SIZE];
 int isEmpty();
@@ -16,18 +16,24 @@ void push(char element)
 void pop()
 {
     if(isEmpty() != 1)
+    {
         top--;
+    }
 }
 char peek()
 {
     if(isEmpty() != 1)
+    {
         return stack[top];
+    }
     return '\0';
 }
 int isEmpty()
 {
     if(top != -1)
+    {
         return 0; 
+    }
     return 1;
 }
 bool isValid(char* s)
@@ -50,10 +56,10 @@ bool isValid(char* s)
             {
                 pop();
             }
-        }
-        else
-        {
-            return false;  
+            else
+            {
+                return false;
+            }
         }
     }
     if(isEmpty() == 1)
@@ -66,12 +72,16 @@ void main()
 {
     int c = 0;
     char element;
-    char parenthesis[100];
-    memset(parenthesis, '\0', 100);
+    char parenthesis[STACK_SIZE];
+    memset(parenthesis, '\0', STACK_SIZE);
     printf("Enter the parenthesis string.\n");
     scanf("%s", parenthesis);
     if(isValid(parenthesis) == true)
+    {
         printf("VALID\n");
+    }
     else
+    {
         printf("INVALID\n");
+    }
 }
