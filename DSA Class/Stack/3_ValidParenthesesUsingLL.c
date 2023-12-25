@@ -43,7 +43,7 @@ char peek()
     {
         return head->data;
     }
-    return -1;
+    return'\0';
 }
 int isEmpty()
 {
@@ -66,7 +66,7 @@ int checkBracketValidity(char arr[])
         else if(arr[i] == '}' || arr[i] == ']' || arr[i] == ')')
         {
             char bracket = peek();
-            if(bracket == -1)
+            if(bracket == '\0')
             {
                 return 0;
             }

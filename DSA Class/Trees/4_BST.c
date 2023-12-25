@@ -64,7 +64,7 @@ struct Node *BST_delete(struct Node *root)
             temp = temp -> right;
         }
         root -> data = temp -> data;
-        temp = BST_delete(temp);
+        root->left = BST_delete(temp);
     }
     else if(root->left == NULL)                         //If the parent node has only the right node.
     {
@@ -75,7 +75,7 @@ struct Node *BST_delete(struct Node *root)
             temp = temp -> left;
         }
         root -> data = temp -> data;
-        temp = BST_delete(temp);
+        root->right = BST_delete(temp);
     }
     return root;
 }

@@ -8,7 +8,7 @@
 int top = -1;
 int stack[STACK_SIZE];
 int isEmpty();
-void push(int element)
+void push(char element)
 {
     top++;
     stack[top] = element;
@@ -18,11 +18,11 @@ void pop()
     if(isEmpty() != 1)
         top--;
 }
-int peek()
+char peek()
 {
     if(isEmpty() != 1)
         return stack[top];
-    return -1;
+    return '\0';
 }
 int isEmpty()
 {
@@ -36,20 +36,30 @@ bool isValid(char* s)
     for(int i = 0; i < n; i++)
     {
         if(s[i] == '{' || s[i] == '[' || s[i] == '(')
+        {
             push(s[i]);
+        }
         else if(s[i] == '}' || s[i] == ']' || s[i] == ')')
         {
             char element = peek();
-            if(element == -1)
+            if(element == '\0')
+            {
                 return false;
+            }
             else if((s[i] == '}' && element == '{') || (s[i] == ']' && element == '[') || (s[i] == ')' && element == '('))
+            {
                 pop();
+            }
         }
         else
+        {
             return false;  
+        }
     }
     if(isEmpty() == 1)
+    {
         return true;
+    }
     return false;
 }
 void main()
