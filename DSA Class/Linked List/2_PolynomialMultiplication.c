@@ -24,9 +24,13 @@ void createList(struct Node **head, int n)
         newNode -> e = i;
         newNode -> next = NULL;
         if(temp == NULL)
+        {
             *head = newNode;
+        }
         else
+        {
             temp -> next = newNode;
+        }
         temp = newNode;
     }
 }
@@ -45,9 +49,13 @@ void Multiplication(struct Node **head1, struct Node **head2, struct Node **head
             new -> e = temp1->e + temp2->e;
             new -> next = NULL;
             if(temp3 == NULL)
+            {
                 *head3 = new;
+            }
             else
+            {
                 temp3 -> next = new;
+            }
             temp3 = new;
             temp2 = temp2 -> next;
         }
@@ -83,9 +91,13 @@ void display(struct Node *head)
     while(temp != NULL)
     {
         if(temp->next == NULL)
+        {
             printf("%d \n", temp -> c);
+        }
         else
+        {
             printf("%dx^%d + ", temp -> c, temp -> e);
+        }
         temp = temp -> next;
     }
 }

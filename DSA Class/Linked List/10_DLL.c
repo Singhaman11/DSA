@@ -148,7 +148,9 @@ void insertAtN(struct Node **head, int data, int position)
     }
     struct Node *temp = *head;
     for(int i = 1; i < (position - 1); i++)
+    {
         temp = temp -> next;
+    }
     newNode -> next = temp -> next;
     newNode -> previous = temp;
     temp -> next = newNode;
@@ -212,7 +214,9 @@ void deleteNthNode(struct Node **head, int position)
         prevNode = toDelete;
         toDelete = toDelete -> next;
         if(toDelete == NULL)
+        {
             break;
+        }
     }
     if(toDelete != NULL)
     {
@@ -257,9 +261,13 @@ int main()
                 scanf("%d", &data);
                 index = searchList(head, data);
                 if(index >= 0)
+                {
                     printf("%d found in the list at position %d\n", data, index + 1);
+                }
                 else
+                {
                     printf("%d not found in the list.\n", data);
+                }
                 break;
             case 4:
                 printf("Enter data of the new node: ");
@@ -267,21 +275,33 @@ int main()
                 printf("Enter the position where you want to insert new node: ");
                 scanf("%d", &position);
                 if(position == 1)
+                {
                     insertAtBeginning(&head, data);
+                }
                 else if(position == size(head) + 1)
+                {
                     insertAtEnd(&head, data);
+                }
                 else
+                {
                     insertAtN(&head, data, position);
+                }
                 break;
             case 5:
                 printf("Enter the position of node you want to delete: ");
                 scanf("%d", &position);
                 if(position == 1)
+                {
                     deleteFirstNode(&head);
+                }
                 else if(position == size(head))
+                {
                     deleteLastNode(&head);
+                }
                 else
+                {
                     deleteNthNode(&head, position);
+                }
                 break;
             case 0:
                 exit(0);

@@ -18,7 +18,9 @@ struct Node *createNode(int element)
 void inOrder(struct Node *root)
 {
     if(root == NULL)
+    {
         return;
+    }
     inOrder(root->left);
     printf("%d, ",  root->data);
     inOrder(root->right);
@@ -26,7 +28,9 @@ void inOrder(struct Node *root)
 void preOrder(struct Node *root)
 {
     if(root == NULL)
+    {
         return;
+    }
     printf("%d, ",  root->data);
     preOrder(root->left);
     preOrder(root->right);
@@ -34,7 +38,9 @@ void preOrder(struct Node *root)
 void postOrder(struct Node *root)
 {
     if(root == NULL)
+    {
         return;
+    }
     postOrder(root->left);
     postOrder(root->right);
     printf("%d, ",  root->data);

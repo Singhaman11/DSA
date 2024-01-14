@@ -9,7 +9,9 @@ struct Node
 void createList(int n)
 {
     if(n == 0)
+    {
         printf("List size should be greater than 0.\n");
+    }
     temp = head;
     for(int i = 1; i <= n; i++)
     {
@@ -18,16 +20,22 @@ void createList(int n)
         scanf("%d", &new -> data);
         new -> next = NULL;
         if(head == NULL)
+        {
             head = new;
+        }
         else
+        {
             temp -> next = new;
+        }
         temp = new;
     }
 }
 struct Node* oddEvenList(struct Node* head)
 {
     if (head == NULL || head->next == NULL || head->next->next == NULL)
+    {
         return head;
+    }
     struct Node *temp = head;
     struct Node *head1 = head -> next;
     struct Node *temp1 = head1;

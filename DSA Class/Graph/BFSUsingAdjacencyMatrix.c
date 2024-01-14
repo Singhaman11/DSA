@@ -27,15 +27,15 @@ int isEmpty()
 void main()
 {
     int visited[QUEUE_SIZE] = {0, 0, 0, 0, 0, 0, 0};
-    int a[QUEUE_SIZE][QUEUE_SIZE] = {{0, 1, 1, 1, 0, 0, 0}, 
-                                     {1, 0, 1, 0, 0, 0, 0}, 
-                                     {1, 1, 0, 1, 1, 0, 0}, 
-                                     {1, 0, 1, 0, 1, 0, 0}, 
-                                     {0, 0, 1, 1, 0, 1, 1}, 
-                                     {0, 0, 0, 0, 1, 0, 0}, 
+    int a[QUEUE_SIZE][QUEUE_SIZE] = {{0, 1, 1, 1, 0, 0, 0},
+                                     {1, 0, 1, 0, 0, 0, 0},
+                                     {1, 1, 0, 1, 1, 0, 0},
+                                     {1, 0, 1, 0, 1, 0, 0},
+                                     {0, 0, 1, 1, 0, 1, 1},
+                                     {0, 0, 0, 0, 1, 0, 0},
                                      {0, 0, 0, 0, 1, 0, 0}};
     int starting_node;
-    printf("Enter the node from where search shoul be started.\n");
+    printf("Enter the node from where search should be started.\n");
     scanf("%d", &starting_node);
     printf("%d", starting_node);
     visited[starting_node] = 1;
@@ -51,6 +51,6 @@ void main()
                 visited[i] = 1;
                 enqueue(i);
             }
-        }  
+        } 
     }
 }

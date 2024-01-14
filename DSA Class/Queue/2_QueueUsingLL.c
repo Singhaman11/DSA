@@ -28,9 +28,14 @@ void dequeue()
 {
     struct Node *deleteNode = NULL;
     if(isEmpty() == 1)
+    {
         printf("No element is present in the queue.\n");
-    else if(front->next == NULL)
+    }
+    else if(front == rear)
+    {
         front = NULL;
+        rear = NULL;
+    }
     else
     {
         deleteNode = front;

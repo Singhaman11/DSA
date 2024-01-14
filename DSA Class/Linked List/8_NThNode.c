@@ -9,7 +9,9 @@ struct Node
 void createList(int n)
 {
     if(n == 0)
+    {
         printf("List size should be greater than 0.\n");
+    }
     temp = head;
     for(int i = 1; i <= n; i++)
     {
@@ -18,9 +20,13 @@ void createList(int n)
         scanf("%d", &new -> data);
         new -> next = NULL;
         if(head == NULL)
+        {
             head = new;
+        }
         else
+        {
             temp -> next = new;
+        }
         temp = new;
     }
 }
@@ -55,7 +61,11 @@ void main()
     int p = 0;
     scanf("%d", &p);
     if(p > 0 && p <= n)
+    {
         nthNodeFromLast(n - p + 1);
+    }
     else
+    {
         printf("Entered an invalid position.\n");
+    }
 }

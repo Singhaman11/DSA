@@ -25,7 +25,9 @@ void createList(struct Node **head, int n)
         newNode -> next = NULL;
         newNode -> prev = NULL;
         if(*head == NULL)
+        {
             *head = newNode;
+        }
         else
         {
             temp -> next = newNode;

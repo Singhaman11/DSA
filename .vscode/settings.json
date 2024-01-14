@@ -4,6 +4,7 @@
         "algorithm": "c",
         "array": "c",
         "string": "c",
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "atomic": "c"
     }
 }

@@ -23,9 +23,13 @@ void createList(int n)
         scanf("%d", &new -> data);
         new -> next = NULL;
         if(head == NULL)
+        {
             head = new;
+        }
         else
+        {
             prev -> next = new;
+        }
         prev = new;
     }
 }
@@ -37,7 +41,9 @@ void reverse(int left, int right)
     struct Node *Next = NULL;
     struct Node *temp1 = NULL;
     if(right == 1)
+    {
         head = head;
+    }
     else if(left == 1)
     {
         while(right >= left)

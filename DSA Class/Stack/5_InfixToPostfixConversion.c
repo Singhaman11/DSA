@@ -13,7 +13,9 @@ void push(char element)
     new -> data = element;
     new -> next = NULL;
     if(head != NULL)
+    {
         new -> next = head;
+    }
     head = new;
 }
 char pop()
@@ -42,25 +44,39 @@ char pop()
 char peek()
 {
     if(isEmpty() == 1)
+    {
         return -1;
+    }
     else
+    {
         return head->data;
+    }
 }
 int isEmpty()
 {
     if(head == NULL)
+    {
         return 1;
+    }
     else
+    {
         return 0;
+    }
 }
 int priority(char c)
 {
     if(c == '^')
+    {
         return 3;
+    }
     else if(c == '/' || c == '*' || c == '%')
+    {
         return 2;
+    }
     else if(c == '+' || c == '-')
+    {
         return 1;
+    }
     return -1;
 }
 void Infix_to_Postfix(char arr[])
@@ -73,9 +89,13 @@ void Infix_to_Postfix(char arr[])
     for(int i = 0; i < n; i++)
     {
         if(arr[i] >= 'A' && arr[i] <= 'Z')
+        {
             postfix[j++] = arr[i];
+        }
         else if(arr[i] == '(' || isEmpty() == 1 || priority(arr[i]) > priority(peek()))
+        {
             push(arr[i]);
+        }
         else if(arr[i] == ')')
         {
             while(peek() != '(')
@@ -83,7 +103,9 @@ void Infix_to_Postfix(char arr[])
                 postfix[j++] = pop();
             }
             if(isEmpty() != 1)
+            {
                 pop();
+            }
         }   
         else if(priority(arr[i]) == 3 && priority(peek()) == 3)
         {

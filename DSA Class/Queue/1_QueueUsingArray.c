@@ -10,7 +10,9 @@ int isEmpty();
 void enqueue(int element)
 {
     if(isFull() == 1)
+    {
         printf("Overflow\n");
+    }
     else
     {
         rear++;
@@ -22,9 +24,13 @@ void enqueue(int element)
 void dequeue()
 {
     if(isEmpty() == 1)
+    {
         printf("Underflow\n");
+    }
     else
+    {
         front++;
+    }
 }
 int Front()
 {
@@ -35,7 +41,9 @@ int Front()
         return 0;
     }
     else
+    {
         return queue[front];
+    }
 }
 int Rear()
 {
@@ -46,18 +54,24 @@ int Rear()
         return 0;
     }
     else
+    {
         return queue[rear];
+    }
 }
 int isFull()
 {
     if(rear == (QUEUE_SIZE - 1))
+    {
         return 1;
+    }
     return 0;
 }
 int isEmpty()
 {
     if(Rear() == 0)
+    {
         return 1;
+    }
     return 0;
 }
 void display()
@@ -67,7 +81,9 @@ void display()
         printf("%d, ", queue[i]);
     }
     if(front > rear)
+    {
         printf("No element present in the queue.");
+    }
     printf("\n");
 }
 void main()

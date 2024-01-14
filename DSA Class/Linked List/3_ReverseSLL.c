@@ -22,9 +22,13 @@ void createList(int n)
         scanf("%d", &new -> data);
         new -> next = NULL;
         if(head == NULL)
+        {
             head = new;
+        }
         else
+        {
             temp -> next = new;
+        }
         temp = new;
     }
 }

@@ -24,9 +24,13 @@ void createList(struct Node **head, int n)
         newNode -> e = i;
         newNode -> next = NULL;
         if(temp == NULL)
+        {
             *head = newNode;
+        }
         else
+        {
             temp -> next = newNode;
+        }
         temp = newNode;
     }
 }
@@ -60,9 +64,13 @@ void Addition(struct Node **head1, struct Node **head2, struct Node **head3)
         }
         newNode -> next = NULL;
         if(*head3 == NULL)
+        {
             *head3 = newNode;
+        }
         else
+        {
             temp3 -> next = newNode;
+        }
         temp3 = newNode;
     }
     while(temp1 != NULL)
@@ -72,9 +80,13 @@ void Addition(struct Node **head1, struct Node **head2, struct Node **head3)
         newNode -> e = temp1 -> e;
         newNode -> next = NULL;
         if(*head3 == NULL)
+        {
             *head3 = newNode;
+        }
         else
+        {
             temp3 -> next = newNode;
+        }
         temp3 = newNode;
         temp1 = temp1 -> next;
     }
@@ -85,9 +97,13 @@ void Addition(struct Node **head1, struct Node **head2, struct Node **head3)
         newNode -> e = temp2 -> e;
         newNode -> next = NULL;
         if(*head3 == NULL)
+        {
             *head3 = newNode;
+        }
         else
+        {
             temp3 -> next = newNode;
+        }
         temp3 = newNode;
         temp2 = temp2 -> next;
     }
@@ -98,9 +114,13 @@ void display(struct Node *head)
     while(temp != NULL)
     {
         if(temp->next == NULL)
+        {
             printf("%d \n", temp -> c);
+        }
         else
+        {
             printf("%dx^%d + ", temp -> c, temp -> e);
+        }
         temp = temp -> next;
     }
 }

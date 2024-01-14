@@ -14,16 +14,22 @@ void push(int element)
     new -> data = element;
     new -> next = NULL;
     if(top != NULL)
+    {
         new -> next = top;
+    }
     top = new;
 }
 void pop()
 {
     struct Node *deleteNode = NULL;
     if(isEmpty() == 1)
+    {
         printf("No element is present in the stack.\n");
+    }
     else if(top->next == NULL)
+    {
         top = NULL;
+    }
     else
     {
         deleteNode = top;
@@ -39,14 +45,20 @@ int peek()
         return -1;
     }
     else
+    {
         return top->data;
+    }
 }
 int isEmpty()
 {
     if(top == NULL)
+    {
         return 1;
+    }
     else
+    {
         return 0;
+    }
 }
 void display()
 {
