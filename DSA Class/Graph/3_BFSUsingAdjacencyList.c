@@ -46,6 +46,22 @@ void AddEdge(struct Graph *graph, int s, int v)
     }
     // if node already exist don't crreate it again
 }
+/*
+void printGraph(struct Graph *graph)
+{
+    for(int i = 0; i < graph->no_vertices; i++)
+    {
+        struct Node *temp = graph -> adjLists[i];
+        printf("Vertex of %d: ", i);
+        while(temp != NULL)
+        {
+            printf("%d -> ", temp->vertex);
+            temp = temp -> next;
+        }
+        printf("\n");
+    }
+}
+*/
 int isEmpty();
 struct Node1
 {
@@ -99,7 +115,7 @@ int isEmpty()
         return 0;
     }
 }
-void DFS(struct Graph *graph, int start)
+void BFS(struct Graph *graph, int start)
 {
     int v[7] = {0, 0, 0, 0, 0, 0, 0};
     printf("%d ", start);
@@ -139,14 +155,14 @@ int main()
     //     printf("Enter 0 to exit.\n");
     //     scanf("%d", &c);
     // }
-    AddEdge(g1, 0, 1);                              
-    AddEdge(g1, 0, 2);                              
-    AddEdge(g1, 0, 3);                              
-    AddEdge(g1, 1, 2);                              
-    AddEdge(g1, 2, 3);                              
-    AddEdge(g1, 2, 4);                              
-    AddEdge(g1, 3, 4);                              
-    AddEdge(g1, 4, 5);                              
-    AddEdge(g1, 4, 6);                              
-    DFS(g1, 1);
+    AddEdge(g1, 0, 1);
+    AddEdge(g1, 0, 2);
+    AddEdge(g1, 0, 3);
+    AddEdge(g1, 1, 2);
+    AddEdge(g1, 2, 3);
+    AddEdge(g1, 2, 4);
+    AddEdge(g1, 3, 4);
+    AddEdge(g1, 4, 5);
+    AddEdge(g1, 4, 6);
+    BFS(g1, 1);
 }
