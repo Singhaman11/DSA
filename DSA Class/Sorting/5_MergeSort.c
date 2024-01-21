@@ -11,14 +11,13 @@ void merge(int A[], int mid, int low, int high)
         {
             B[k] = A[i];
             i++;
-            k++;
         }
         else
         {
             B[k] = A[j];
             j++;
-            k++;
         }
+        k++;
     }
     while(i <= mid)
     {
