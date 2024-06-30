@@ -1,5 +1,3 @@
-//Stack works on the principle of Last In First Out (LIFO).
-//Stack using array.
 #include<stdio.h>
 #include<stdlib.h>
 #define STACK_SIZE 5
@@ -23,7 +21,7 @@ void pop()
 {
     if(isEmpty() == 1)
     {
-        printf("No element is present in the stack.\n");
+        printf("Underflow\n");
     }
     else
     {
@@ -50,7 +48,7 @@ int isFull()
     }
     else
     {
-        return  0; 
+        return 0;
     }
 }
 int isEmpty()
@@ -61,7 +59,7 @@ int isEmpty()
     }
     else
     {
-        return  0; 
+        return 0;
     }
 }
 void display()
@@ -92,6 +90,7 @@ void main()
                 break;
             case 2:
                 pop();
+                printf("Element popped successfully.\n");
                 break;
             case 3:
                 if(peek() != -1)

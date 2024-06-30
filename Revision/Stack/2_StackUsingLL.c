@@ -1,33 +1,38 @@
-//Stack works on the principle of Last In First Out (LIFO).
-//Stack using array.
 #include<stdio.h>
 #include<stdlib.h>
-#define STACK_SIZE 5
-int top = -1;
-int stack[STACK_SIZE];
-int isFull();
 int isEmpty();
+struct Node
+{
+    int data;
+    struct Node *next;
+}*top = NULL;
 void push(int element)
 {
-    if(isFull() == 1)
+    struct Node *new = (struct Node*) malloc(sizeof(struct Node));
+    new -> data = element;
+    new -> next = NULL;
+    if(top != NULL)
     {
-        printf("Overflow\n");
+        new -> next = top;
     }
-    else
-    {
-        top++;
-        stack[top] = element;
-    }
+    top = new;
 }
 void pop()
 {
+    struct Node *deleteNode = NULL;
     if(isEmpty() == 1)
     {
         printf("No element is present in the stack.\n");
     }
+    else if(top->next == NULL)
+    {
+        top = NULL;
+    }
     else
     {
-        top--;
+        deleteNode = top;
+        top = top -> next;
+        free(deleteNode);
     }
 }
 int peek()
@@ -39,36 +44,27 @@ int peek()
     }
     else
     {
-        return stack[top];
-    }
-}
-int isFull()
-{
-    if(top == STACK_SIZE-1)
-    {
-        return 1;
-    }
-    else
-    {
-        return  0; 
+        return top->data;
     }
 }
 int isEmpty()
 {
-    if(top == -1)
+    if(top == NULL)
     {
         return 1;
     }
     else
     {
-        return  0; 
+        return 0;
     }
 }
 void display()
 {
-    for(int i = 0; i <= top; i++)
+    struct Node *temp = top;
+    while(temp != NULL)
     {
-        printf("%d, ", stack[i]);
+        printf("%d, ", temp -> data);
+        temp = temp -> next;
     }
     printf("\n");
 }
@@ -95,19 +91,13 @@ void main()
                 break;
             case 3:
                 if(peek() != -1)
-                {
                     printf("The top element of the stack is %d.\n", peek());
-                }
                 break;
             case 4:
                 if(isEmpty() == 1)
-                {
                     printf("Stack is empty.\n");
-                }
                 else
-                {
                     display();
-                }
                 break;
             default:
                 exit(0);
