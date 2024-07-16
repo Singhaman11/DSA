@@ -17,25 +17,24 @@ int search(int inOrder[], int start, int end, int curr)
     }
     return -1;
 }
-struct Node *builtTree(int rev_postOrder[], int inOrder[], int start, int end)
+struct Node *builtTree(int postOrder[], int inOrder[], int start, int end)
 {
     static int ind = 4;
     if (start > end)
     {
         return NULL;
     }
-    int curr = rev_postOrder[ind];
+    int curr = postOrder[ind];
     ind--;
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     newNode->data = curr;
     newNode->left = NULL;
     newNode->right = NULL;
-    // printf("%d  ", curr);
     if (start != end)
     {
         int pos = search(inOrder, start, end, curr);
-        newNode->right = builtTree(rev_postOrder, inOrder, pos + 1, end);
-        newNode->left = builtTree(rev_postOrder, inOrder, start, pos - 1);
+        newNode->right = builtTree(postOrder, inOrder, pos + 1, end);
+        newNode->left = builtTree(postOrder, inOrder, start, pos - 1);
     }
     return newNode;
 }
