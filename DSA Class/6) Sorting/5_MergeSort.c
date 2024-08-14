@@ -4,7 +4,7 @@ void merge(int A[], int mid, int low, int high)
     int i = low;
     int j = mid + 1;
     int k = low;
-    int B[high];
+    int B[high+1];
     while(i <= mid && j <= high)
     {
         if(A[i] < A[j])
@@ -31,7 +31,7 @@ void merge(int A[], int mid, int low, int high)
         j++;
         k++;
     }
-    for (int i = low; i <= high; i++)
+    for(int i = low; i <= high; i++)
     {
         A[i] = B[i];
     }
